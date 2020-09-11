@@ -1,4 +1,4 @@
-package ru.job4j.tracker.inheritance;
+package ru.job4j.other.inheritance;
 
 public class JSONReport extends TextReport{
 

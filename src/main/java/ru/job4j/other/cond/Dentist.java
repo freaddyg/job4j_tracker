@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.other.cond;
 
 public class Dentist extends Doctor{
     public boolean treatTooth(Pacient pacient) {
