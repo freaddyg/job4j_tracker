@@ -16,5 +16,6 @@ public class Bus implements Transport {
     @Override
     public float fuel(int liters) {
         return 0;
+
     }
 }
