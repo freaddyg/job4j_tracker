@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class StartUI {
@@ -63,6 +65,9 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с таким именем не найдены");
                 }
+            } else if (select == 6) {
+                run = false;
+                System.out.println("Программа завершена");
             }
         }
     }
