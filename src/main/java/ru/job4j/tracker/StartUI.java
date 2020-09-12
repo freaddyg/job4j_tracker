@@ -1,10 +1,6 @@
 package ru.job4j.tracker;
 
 
-import ru.job4j.poly.Transport;
-
-import javax.sound.midi.Track;
-
 public class StartUI {
 
     public static void createItem(Input input, Tracker tracker){
