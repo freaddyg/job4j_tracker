@@ -74,4 +74,66 @@ public class StartUITest{
                         "0. === Exit ===" + System.lineSeparator()
         ));
     }
+
+    @Test
+    public  void whenFindAll() {
+        Output stubOutput = new StubOutput();
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("first item"));
+        tracker.add(new Item("second item"));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new GiveAction(stubOutput),
+                new ExitAction()
+        };
+        String[] names = {"first item", "second item"};
+        new StartUI(stubOutput).init(in, tracker, actions);
+        for (int i = 0; i < tracker.findAll().length; i++) {
+            assertThat(tracker.findAll()[i].toString(), is("Item{" +
+                    "id=" + (i + 1) +
+                    ", name='" + names[i] + '\'' +
+                    '}'));
+        }
+    }
+
+    @Test
+    public void whenFindByName() {
+        Output stubOutput = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Search item"));
+        String name = item.getName();
+        Input in = new StubInput(
+                new String[] {"0", name, "1"}
+        );
+        UserAction[] actions = {
+                new NameAction(stubOutput),
+                new ExitAction()
+        };
+        new StartUI(stubOutput).init(in, tracker, actions);
+        for (int i = 0; i < tracker.findByName(item.getName()).length; i++) {
+            assertThat(tracker.findByName(item.getName())[i].getName(), is(name));
+        }
+    }
+
+    @Test
+    public void whenFindById() {
+        Output stubOutput = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Search item"));
+        int id = item.getId();
+        Input in = new StubInput(
+                new String[] {"0", id + "", "1"}
+        );
+        UserAction[] actions = {
+                new IdAction(stubOutput),
+                new ExitAction()
+        };
+        new StartUI(stubOutput).init(in, tracker, actions);
+        assertThat(tracker.findById(id).toString(), is("Item{" +
+                "id=" + id +
+                ", name='" + item.getName() + '\'' +
+                '}'));
+    }
 }
