@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.io.OutputStream;
+
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -90,12 +92,15 @@ public class StartUITest{
         };
         String[] names = {"first item", "second item"};
         new StartUI(stubOutput).init(in, tracker, actions);
-        for (int i = 0; i < tracker.findAll().length; i++) {
-            assertThat(tracker.findAll()[i].toString(), is("Item{" +
-                    "id=" + (i + 1) +
-                    ", name='" + names[i] + '\'' +
-                    '}'));
-        }
+        assertThat(stubOutput.toString(), is("Menu." + System.lineSeparator() +
+                "0. === Find all Items ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator() +
+                "Item{id=1, name='first item'}" + System.lineSeparator() +
+                "Item{id=2, name='second item'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. === Find all Items ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator()));
+
     }
 
     @Test
@@ -112,7 +117,6 @@ public class StartUITest{
                 new ExitAction()
         };
         new StartUI(stubOutput).init(in, tracker, actions);
-        System.out.println(stubOutput.toString());
         assertThat(stubOutput.toString(), is("Menu." + System.lineSeparator() +
                 "0. === Find items by name ===" + System.lineSeparator() +
                 "1. === Exit ===" + System.lineSeparator() +
@@ -135,9 +139,13 @@ public class StartUITest{
                 new ExitAction()
         };
         new StartUI(stubOutput).init(in, tracker, actions);
-        assertThat(tracker.findById(id).toString(), is("Item{" +
-                "id=" + id +
-                ", name='" + item.getName() + '\'' +
-                '}'));
+        System.out.println(stubOutput.toString());
+        assertThat(stubOutput.toString(), is("Menu." + System.lineSeparator() +
+                "0. === Find item by id ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator() +
+                "Item{id=1, name='Search item'}" + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. === Find item by id ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator()));
     }
 }
