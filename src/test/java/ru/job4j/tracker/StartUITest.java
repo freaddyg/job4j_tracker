@@ -112,9 +112,13 @@ public class StartUITest{
                 new ExitAction()
         };
         new StartUI(stubOutput).init(in, tracker, actions);
-        for (int i = 0; i < tracker.findByName(item.getName()).length; i++) {
-            assertThat(tracker.findByName(item.getName())[i].getName(), is(name));
-        }
+        System.out.println(stubOutput.toString());
+        assertThat(stubOutput.toString(), is("Menu." + System.lineSeparator() +
+                "0. === Find items by name ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator() +
+                "Item{id=1, name='Search item'}" + System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. === Find items by name ===" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator()));
     }
 
     @Test
