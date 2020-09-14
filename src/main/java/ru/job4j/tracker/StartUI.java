@@ -93,7 +93,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output consoleOutput = new ConsoleOutput();
-        Input input = new ValidaleInput();
+        Input input = new ValidateInput(consoleOutput, new ConsoleInput());
         UserAction[] actions = {
                 new CreateAction(consoleOutput),
                 new GiveAction(consoleOutput),
