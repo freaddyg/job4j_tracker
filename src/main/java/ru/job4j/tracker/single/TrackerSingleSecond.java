@@ -1,13 +1,16 @@
 package ru.job4j.tracker.single;
 
+import ru.job4j.tracker.Tracker;
+
 public class TrackerSingleSecond {
-    private static final TrackerSingleSecond INSTANCE = new TrackerSingleSecond();
+    private static final Tracker LOAD = new Tracker();
 
     private TrackerSingleSecond() {
 
     }
 
-    public static TrackerSingleSecond getInstance() {
-        return INSTANCE;
+    public static Tracker loadTracker() {
+        return LOAD;
     }
+
 }

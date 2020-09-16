@@ -1,17 +1,18 @@
 package ru.job4j.tracker.single;
 
+import ru.job4j.tracker.Tracker;
+
 public class TrackerSingleFirst {
-    private static TrackerSingleFirst instance;
+    private static Tracker instance;
 
     private TrackerSingleFirst() {
 
     }
 
-    public static TrackerSingleFirst getInstance() {
+    public static Tracker getInstance() {
         if (instance == null) {
-            instance = new TrackerSingleFirst();
+            instance = new Tracker();
         }
         return instance;
     }
-
 }

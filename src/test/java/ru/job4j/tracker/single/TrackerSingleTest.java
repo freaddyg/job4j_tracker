@@ -9,10 +9,10 @@ import static org.junit.Assert.*;
 
 public class TrackerSingleTest {
 
-    @Test
-    public void whenLoad() {
-        Tracker trackerFirst = TrackerSingle.loadTracker();
-        Tracker trackerSecond = TrackerSingle.loadTracker();
-        assertThat(trackerFirst.hashCode(), is(trackerSecond.hashCode()));
-    }
+//    @Test
+//    public void whenLoad() {
+//        Tracker trackerFirst = TrackerSingle.loadTracker();
+//        Tracker trackerSecond = TrackerSingle.loadTracker();
+//        assertThat(trackerFirst.hashCode(), is(trackerSecond.hashCode()));
+//    }
 }
