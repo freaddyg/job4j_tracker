@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
 
     private final Output out;
@@ -67,24 +70,24 @@ public class StartUI {
 
 
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select :");
-            if (select < 0 || select >= actions.length) {
-                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+            if (select < 0 || select >= actions.size()) {
+                out.println("Wrong input, you can select: 0 .. " + (actions.size() - 1));
                 continue;
             }
-            UserAction act = actions[select];
+            UserAction act = actions.get(select);
             run = act.execute(input, tracker);
         }
     }
 
-    private void showMenu(UserAction[] actions) {
+    private void showMenu(List<UserAction> actions) {
         out.println("Menu.");
-        for (int i = 0; i < actions.length; i++) {
-            out.println(i + ". " + actions[i].name());
+        for (int i = 0; i < actions.size(); i++) {
+            out.println(i + ". " + actions.get(i).name());
         }
 
         
@@ -94,15 +97,15 @@ public class StartUI {
     public static void main(String[] args) {
         Output consoleOutput = new ConsoleOutput();
         Input input = new ValidateInput(consoleOutput, new ConsoleInput());
-        UserAction[] actions = {
-                new CreateAction(consoleOutput),
-                new GiveAction(consoleOutput),
-                new EditAction(consoleOutput),
-                new IdAction(consoleOutput),
-                new DeleteAction(consoleOutput),
-                new NameAction(consoleOutput),
-                new ExitAction()
-        };
+        ArrayList<UserAction> actions = new ArrayList<>();
+        actions.add(new CreateAction(consoleOutput));
+        actions.add(new GiveAction(consoleOutput));
+        actions.add(new EditAction(consoleOutput));
+        actions.add(new IdAction(consoleOutput));
+        actions.add(new DeleteAction(consoleOutput));
+        actions.add(new NameAction(consoleOutput));
+        actions.add(new ExitAction());
+
         Tracker tracker = new Tracker();
         new StartUI(consoleOutput).init(input, tracker, actions);
     }
