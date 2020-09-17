@@ -97,7 +97,7 @@ public class StartUI {
     public static void main(String[] args) {
         Output consoleOutput = new ConsoleOutput();
         Input input = new ValidateInput(consoleOutput, new ConsoleInput());
-        ArrayList<UserAction> actions = new ArrayList<>();
+        List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(consoleOutput));
         actions.add(new GiveAction(consoleOutput));
         actions.add(new EditAction(consoleOutput));
