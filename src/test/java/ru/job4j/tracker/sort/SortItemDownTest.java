@@ -15,18 +15,24 @@ public class SortItemDownTest {
 
     @Test
     public void compareDown() {
-        Tracker tracker = new Tracker();
-        tracker.add(new Item("Егор"));
-        tracker.add(new Item("Антон"));
-        tracker.add(new Item("Владимир"));
-        tracker.add(new Item("Анатолий"));
-        tracker.add(new Item("Иван"));
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Егор"));
+        items.add(new Item("Антон"));
+        items.add(new Item("Владимир"));
+        items.add(new Item("Анатолий"));
+        items.add(new Item("Иван"));
 
-        List<Item> items = tracker.findAll();
+
         List<Item> itemsCopy = new ArrayList<>();
-        itemsCopy.addAll(items);
-        Collections.sort(itemsCopy, new SortItemDown());
+
+        itemsCopy.add(new Item("Иван"));
+        itemsCopy.add(new Item("Егор"));
+        itemsCopy.add(new Item("Владимир"));
+        itemsCopy.add(new Item("Антон"));
+        itemsCopy.add(new Item("Анатолий"));
+
+
         Collections.sort(items, new SortItemDown());
-        assertThat(items, is(itemsCopy));
+        assertThat(items.get(4).getName(), is(itemsCopy.get(4).getName()));
     }
 }

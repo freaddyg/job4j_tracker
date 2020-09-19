@@ -15,19 +15,25 @@ public class SortItemUpTest {
 
     @Test
     public void compareTestUp() {
-        Tracker tracker = new Tracker();
-        tracker.add(new Item("Егор"));
-        tracker.add(new Item("Антон"));
-        tracker.add(new Item("Владимир"));
-        tracker.add(new Item("Анатолий"));
-        tracker.add(new Item("Иван"));
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Егор"));
+        items.add(new Item("Антон"));
+        items.add(new Item("Владимир"));
+        items.add(new Item("Анатолий"));
+        items.add(new Item("Иван"));
 
-        List<Item> items = tracker.findAll();
+
         List<Item> itemsCopy = new ArrayList<>();
-        itemsCopy.addAll(items);
-        Collections.sort(itemsCopy, new SortItemUp());
+
+        itemsCopy.add(new Item("Анатолий"));
+        itemsCopy.add(new Item("Антон"));
+        itemsCopy.add(new Item("Владимир"));
+        itemsCopy.add(new Item("Егор"));
+        itemsCopy.add(new Item("Иван"));
+
+
         Collections.sort(items, new SortItemUp());
-        assertThat(items, is(itemsCopy));
+        assertThat(items.get(0).getName(), is(itemsCopy.get(0).getName()));
 
     }
 }
