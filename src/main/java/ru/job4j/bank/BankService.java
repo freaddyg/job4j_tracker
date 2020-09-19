@@ -31,10 +31,12 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        List<Account> accounts = users.get(user);
-        for (Account acc : accounts) {
-            if (acc.getRequisite().equals(requisite)) {
-                return acc;
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            for (Account acc : accounts) {
+                if (acc.getRequisite().equals(requisite)) {
+                    return acc;
+                }
             }
         }
         return null;
