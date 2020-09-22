@@ -34,8 +34,6 @@ public class BankServiceTest {
         assertThat(bank.findByRequisite("34", "5546"), is(nullValue()));
     }
 
-
-
     @Test
     public void transferMoney() {
         User user = new User("3434", "Petr Arsentev");

@@ -10,16 +10,18 @@ public class Matches {
             int numPlayer1 = Integer.valueOf(scanner.nextLine());
             if (numPlayer1 < 1 || numPlayer1 > 3) {
                 System.out.println("Неверное число, вы потеряли ход!");
-                if(player == 1) {
+                if (player == 1) {
                     player++;
                 } else {
                     player--;
                 }
             } else {
                 matches -= numPlayer1;
-                if (matches < 0) break;
+                if (matches < 0) {
+                    break;
+                }
                 System.out.println("Осталось " + matches + " спичек");
-                if(player == 1) {
+                if (player == 1) {
                     player++;
                 } else {
                     player--;
@@ -27,7 +29,6 @@ public class Matches {
             }
         }
     }
-
 
     public static void main(String[] args) {
 

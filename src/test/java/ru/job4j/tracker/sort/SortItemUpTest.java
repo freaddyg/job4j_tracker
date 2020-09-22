@@ -22,7 +22,6 @@ public class SortItemUpTest {
         items.add(new Item("Анатолий"));
         items.add(new Item("Иван"));
 
-
         List<Item> itemsCopy = new ArrayList<>();
 
         itemsCopy.add(new Item("Анатолий"));
@@ -30,7 +29,6 @@ public class SortItemUpTest {
         itemsCopy.add(new Item("Владимир"));
         itemsCopy.add(new Item("Егор"));
         itemsCopy.add(new Item("Иван"));
-
 
         Collections.sort(items, new SortItemUp());
         assertThat(items.get(0).getName(), is(itemsCopy.get(0).getName()));

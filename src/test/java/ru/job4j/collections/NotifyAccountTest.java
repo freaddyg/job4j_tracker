@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class NotifyAccountTest {
 
     @Test
-    public void WhenAddTest() {
+    public void whenAddTest() {
         List<Account> accounts = Arrays.asList(
                 new Account("123", "Petr Arsentev", "eDer3432f"),
                 new Account("142", "Petr Arsentev", "000001")
@@ -27,7 +27,7 @@ public class NotifyAccountTest {
     }
 
     @Test
-    public void WhenNotAddTest() {
+    public void whenNotAddTest() {
         List<Account> accounts = Arrays.asList(
                 new Account("123", "Petr Arsentev", "eDer3432f"),
                 new Account("123", "Petr Arsentev", "000001")

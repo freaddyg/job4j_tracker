@@ -22,15 +22,12 @@ public class SortItemDownTest {
         items.add(new Item("Анатолий"));
         items.add(new Item("Иван"));
 
-
         List<Item> itemsCopy = new ArrayList<>();
-
         itemsCopy.add(new Item("Иван"));
         itemsCopy.add(new Item("Егор"));
         itemsCopy.add(new Item("Владимир"));
         itemsCopy.add(new Item("Антон"));
         itemsCopy.add(new Item("Анатолий"));
-
 
         Collections.sort(items, new SortItemDown());
         assertThat(items.get(4).getName(), is(itemsCopy.get(4).getName()));

@@ -1,13 +1,12 @@
 package ru.job4j.tracker;
 
-public class IdAction implements UserAction{
+public class IdAction implements UserAction {
 
     private final Output out;
 
     public IdAction(Output out) {
         this.out = out;
     }
-
 
     @Override
     public String name() {

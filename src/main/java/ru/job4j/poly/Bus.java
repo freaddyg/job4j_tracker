@@ -1,8 +1,7 @@
 package ru.job4j.poly;
 
-
-
 public class Bus implements Transport {
+
     @Override
     public void move() {
 
@@ -16,6 +15,5 @@ public class Bus implements Transport {
     @Override
     public float fuel(int liters) {
         return 0;
-
     }
 }

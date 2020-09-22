@@ -11,7 +11,7 @@ public class UniqueText {
         for (String org : origin) {
             check.add(org);
         }
-        for (String txt :text) {
+        for (String txt : text) {
             if (!check.contains(txt)) {
                 rsl = false;
                 break;

@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
+import ru.job4j.collections.ConvertMatrix2List;
 
 import java.util.Arrays;
 import java.util.List;

@@ -2,14 +2,13 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class NameAction implements UserAction{
+public class NameAction implements UserAction {
 
     private final Output out;
 
     public NameAction(Output out) {
         this.out = out;
     }
-
 
     @Override
     public String name() {

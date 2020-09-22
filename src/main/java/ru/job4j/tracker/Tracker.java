@@ -13,17 +13,14 @@ public class Tracker {
         return item;
     }
 
-
     public Item findById(int id) {
         int index = indexOf(id);
         return index != -1 ? items.get(index) : null;
     }
 
-
     public List<Item> findAll() {
         return items;
     }
-
 
     public List<Item> findByName(String key) {
         List<Item> itemsList = new ArrayList<>();
@@ -34,7 +31,6 @@ public class Tracker {
         }
         return itemsList;
     }
-
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
@@ -54,7 +50,6 @@ public class Tracker {
         }
         return rsl;
     }
-
 
     private int indexOf(int id) {
         int rsl = -1;

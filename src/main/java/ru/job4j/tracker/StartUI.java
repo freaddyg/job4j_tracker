@@ -68,8 +68,6 @@ public class StartUI {
 //        }
 //    }
 
-
-
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
@@ -89,10 +87,7 @@ public class StartUI {
         for (int i = 0; i < actions.size(); i++) {
             out.println(i + ". " + actions.get(i).name());
         }
-
-        
     }
-
 
     public static void main(String[] args) {
         Output consoleOutput = new ConsoleOutput();

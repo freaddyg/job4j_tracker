@@ -6,13 +6,12 @@ import ru.job4j.tracker.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class TrackerSingleFourthTest{
+public class TrackerSingleFourthTest {
 
     @Test
     public  void singleTest() {
-        TrackerSingleFourth firstObj = TrackerSingleFourth.INSTANCE;
-        TrackerSingleFourth secondObj = TrackerSingleFourth.INSTANCE;
-
+        Tracker firstObj = TrackerSingleFourth.TRACKER.getInstanse();
+        Tracker secondObj = TrackerSingleFourth.TRACKER.getInstanse();
 
         assertThat(firstObj.hashCode(), is(secondObj.hashCode()));
     }
