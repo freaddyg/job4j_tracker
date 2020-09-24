@@ -22,19 +22,4 @@ public class Departments {
     public static void sortDesc(List<String> orgs) {
         Collections.sort(orgs, new DescDepComp());
     }
-
-    public static void main(String[] args) {
-        List<String> dep = new ArrayList<>();
-        dep.add("K1/SK1");
-        dep.add("K1/SK2");
-        dep.add("K2/SK1");
-        dep.add("K2/SK2");
-
-        List<String> list = fillGaps(dep);
-        sortDesc(list);
-        for (String l : list) {
-            System.out.println(l);
-        }
-
-    }
 }
