@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class PhoneDictionaryTest {
 
     @Test
-    public void findTest() {
+    public void findBySurname() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
@@ -18,7 +18,17 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Yuriy", "Korsakov", "54696", "Nizhnii Novgorod")
         );
-        ArrayList<Person> persons = phones.find("Yuriy");
+        ArrayList<Person> persons = phones.findBy("Kors");
         assertThat(persons.get(0).getAddress(), is("Nizhnii Novgorod"));
+    }
+
+    @Test
+    public void whenFindByName() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.findBy("Petr");
+        assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 }
