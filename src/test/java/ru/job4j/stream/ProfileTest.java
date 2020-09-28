@@ -17,7 +17,7 @@ public class ProfileTest {
     @Before
     public void setUp() {
         profiles.add(new Profile(new Address("Nizhniy Novgorod", "Bul'var", 13, 22)));
-        profiles.add(new Profile(new Address("Moscow", "T. Stan", 26, 9)));
+        profiles.add(new Profile(new Address("Nizhniy Novgorod", "Bul'var", 13, 22)));
         profiles.add(new Profile(new Address("Moscow", "Timiryazevskaya", 15, 6)));
     }
 
@@ -25,9 +25,8 @@ public class ProfileTest {
     public void whenCollectClassA() {
         List<Address> rsl = Profile.collect(profiles);
         List<Address> expected = new ArrayList<>();
-        expected.add(new Address("Nizhniy Novgorod", "Bul'var", 13, 22));
-        expected.add(new Address("Moscow", "T. Stan", 26, 9));
         expected.add(new Address("Moscow", "Timiryazevskaya", 15, 6));
+        expected.add(new Address("Nizhniy Novgorod", "Bul'var", 13, 22));
 
         assertThat(rsl.get(0).getCity(), is(expected.get(0).getCity()));
     }
