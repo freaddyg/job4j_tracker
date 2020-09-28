@@ -23,7 +23,7 @@ public class ProfileTest {
 
     @Test
     public void whenCollectClassA() {
-        List<Address> rsl = Profile.collect(profiles);
+        List<Address> rsl = Profiles.collect(profiles);
         List<Address> expected = new ArrayList<>();
         expected.add(new Address("Moscow", "Timiryazevskaya", 15, 6));
         expected.add(new Address("Nizhniy Novgorod", "Bul'var", 13, 22));
