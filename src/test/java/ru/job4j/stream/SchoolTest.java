@@ -4,7 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -59,6 +61,21 @@ public class SchoolTest {
         expected.add(new Student(20, "Surname2"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenCollectToMap() {
+        School sc = new School();
+        List<Student> std = new ArrayList<>();
+        std.add(new Student(90, "Surname1"));
+        std.add(new Student(80, "Surname2"));
+        Map<String, Student> rsl = sc.collectToMap(std);
+
+        Map<String, Student> expected = new HashMap<>();
+        expected.put("Surname1", new Student(90, "Surname1"));
+        expected.put("Surname2", new Student(80, "Surname2"));
+
         assertThat(rsl, is(expected));
     }
 }
