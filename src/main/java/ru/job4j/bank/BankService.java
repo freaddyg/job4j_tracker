@@ -20,37 +20,34 @@ public class BankService {
     }
 
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
-        return rsl;
-//        return  users.keySet()
-//                        .stream().filter(u -> u.getPassport().equals(passport))
-//                        .findFirst()
-//                        .orElse(null);
-
+//        Optional<User> rsl = Optional.empty();
+//        for (User user : users.keySet()) {
+//            if (user.getPassport().equals(passport)) {
+//                rsl = Optional.of(user);
+//                break;
+//            }
+//        }
+//        return rsl;
+        return  users.keySet()
+                        .stream().filter(u -> u.getPassport().equals(passport))
+                        .findFirst();
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        Optional<Account> rsl = Optional.empty();
         var user = findByPassport(passport);
         if (user.isPresent()) {
             List<Account> accounts = users.get(user.get());
-            for (Account acc : accounts) {
-                if (acc.getRequisite().equals(requisite)) {
-                    rsl = Optional.of(acc);
-                }
-            }
-//            return accounts.stream()
-//                    .filter(acc -> acc.getRequisite().equals(requisite))
-//                    .findFirst()
-//                    .orElse(null);
+//            for (Account acc : accounts) {
+//                if (acc.getRequisite().equals(requisite)) {
+//                    rsl = Optional.of(acc);
+//                }
+//            }
+            return accounts.stream()
+                    .filter(acc -> acc.getRequisite().equals(requisite))
+                    .findFirst();
+
         }
-        return rsl;
+        return Optional.empty();
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
